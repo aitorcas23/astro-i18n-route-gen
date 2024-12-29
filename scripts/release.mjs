@@ -38,15 +38,15 @@ const run = async (command, ...args) => {
 const main = async () => {
 	const { values } = parseArgs({
 		options: {
-			otp: { type: "string" }
-		}
+			otp: { type: "string" },
+		},
 	});
-	
+
 	await run("pnpm changeset version");
 	await run("git add .");
 	await run('git commit -m "chore: update version"');
 	await run("git push");
-	await run("pnpm --filter package-name build");
+	await run("pnpm --filter astro-i18n-routes build");
 	if (values.otp) {
 		await run(`pnpm changeset publish --otp=${values.otp}`);
 	} else {
@@ -55,7 +55,7 @@ const main = async () => {
 	await run("git push --follow-tags");
 	const tag = (await run("git describe --abbrev=0")).replace("\n", "");
 	await run(
-		`gh release create ${tag} --title ${tag} --notes "Please refer to [CHANGELOG.md](https://github.com/TODO:update/blob/main/package/CHANGELOG.md) for details."`,
+		`gh release create ${tag} --title ${tag} --notes "Please refer to [CHANGELOG.md](https://github.com/aitorcas23/astro-i18n-routes/blob/main/package/CHANGELOG.md) for details."`
 	);
 };
 

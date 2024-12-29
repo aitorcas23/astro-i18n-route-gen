@@ -1,11 +1,11 @@
 {
-	"name": "package-name",
-	"version": "0.0.0",
-	"description": "TODO:",
+	"name": "astro-i18n-routes",
+	"version": "0.1.0",
+	"description": "Pages routes cloning for astro i18n.",
 	"author": {
-		"email": "TODO:",
-		"name": "TODO:",
-		"url": "TODO:"
+		"email": "aitorcas23@gmail.com",
+		"name": "aitorcas23",
+		"url": "https://github.com/aitorcas23"
 	},
 	"license": "MIT",
 	"keywords": [
@@ -13,9 +13,10 @@
 		"astro-component",
 		"withastro",
 		"astro",
-		"TODO:"
+		"i18n",
+		"internationalization"
 	],
-	"homepage": "TODO:",
+	"homepage": "https://github.com/aitorcas23/astro-i18n-routes",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -28,8 +29,8 @@
 	},
 	"files": ["dist"],
 	"scripts": {
-		"dev": "tsup --watch",
-		"build": "tsup"
+		"dev": "tsup --dts --watch",
+		"build": "tsup --dts"
 	},
 	"type": "module",
 	"peerDependencies": {

@@ -1,3 +1,3 @@
-import { integration } from "./integration.js";
+import { astroI18nRoutes } from "./integration.js";
 
-export default integration;
+export default astroI18nRoutes;
