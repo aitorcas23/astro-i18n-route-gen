@@ -13,6 +13,6 @@
 - [ ] Share!
 
 To create a release:
-- [ ] `pnpm run changeset`
-- [ ] Commit and push
+- [x] `pnpm run changeset`
+- [x] Commit and push
 - [ ] `pnpm release` (accepts a `--otp` flag)
