@@ -194,7 +194,7 @@ You can now edit files in `package`. Please note that making changes to those fi
 
 ## Licensing
 
-[MIT Licensed](https://github.com/aitorcas23/astro-i18n-routes/blob/main/LICENSE). Made by [aitorcas23](https://github.com/aitorcas23).
+[MIT Licensed](https://github.com/aitorcas23/astro-i18n-route-gen/blob/main/LICENSE). Made by [aitorcas23](https://github.com/aitorcas23).
 
 ## Acknowledgements
 
