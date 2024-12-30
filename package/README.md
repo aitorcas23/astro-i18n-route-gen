@@ -20,6 +20,10 @@ It is recommended to add the localized paths to the .gitignore file so you don't
 src/pages/es
 ```
 
+> [!WARNING]
+> Do not use relative import like `import Component from "../components/Component.astro"`.
+> Use tsconfig `compilerOptions` `paths` to define static paths ([docs](https://www.typescriptlang.org/tsconfig/#paths)).
+
 > [!NOTE]
 > If you want to manually edit localized pages then it is better to not use this integration.
 
