@@ -1,7 +1,7 @@
 {
-	"name": "astro-i18n-routes",
+	"name": "astro-i18n-route-gen",
 	"version": "0.1.0",
-	"description": "Pages routes cloning for astro i18n.",
+	"description": "Astro i18n route generator.",
 	"author": {
 		"email": "aitorcas23@gmail.com",
 		"name": "aitorcas23",
@@ -16,7 +16,7 @@
 		"i18n",
 		"internationalization"
 	],
-	"homepage": "https://github.com/aitorcas23/astro-i18n-routes",
+	"homepage": "https://github.com/aitorcas23/astro-i18n-route-gen",
 	"publishConfig": {
 		"access": "public"
 	},

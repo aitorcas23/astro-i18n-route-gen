@@ -46,7 +46,7 @@ const main = async () => {
 	await run("git add .");
 	await run('git commit -m "chore: update version"');
 	await run("git push");
-	await run("pnpm --filter astro-i18n-routes build");
+	await run("pnpm --filter astro-i18n-route-gen build");
 	if (values.otp) {
 		await run(`pnpm changeset publish --otp=${values.otp}`);
 	} else {

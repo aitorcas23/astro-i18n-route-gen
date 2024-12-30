@@ -6,7 +6,7 @@
 		"node": ">=18.20.3"
 	},
 	"scripts": {
-		"package:dev": "pnpm --filter astro-i18n-routes dev",
+		"package:dev": "pnpm --filter astro-i18n-route-gen dev",
 		"playground:dev": "pnpm --filter playground dev",
 		"dev": "pnpm --stream -r -parallel dev",
 		"changeset": "changeset",

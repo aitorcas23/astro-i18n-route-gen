@@ -1,4 +1,4 @@
-# `Astro i18n Routes`
+# `Astro i18n Route Gen`
 
 This is an [Astro integration](https://docs.astro.build/en/guides/integrations-guide/) that clones the pages routes for internationalization.
 Astro 4 supports i18n routes.
@@ -33,15 +33,15 @@ It is also required to configure the i18n settings in the astro configuration fi
 Install the integration **automatically** using the Astro CLI:
 
 ```bash
-pnpm astro add astro-i18n-routes
+pnpm astro add astro-i18n-route-gen
 ```
 
 ```bash
-npx astro add astro-i18n-routes
+npx astro add astro-i18n-route-gen
 ```
 
 ```bash
-yarn astro add astro-i18n-routes
+yarn astro add astro-i18n-route-gen
 ```
 
 Or install it **manually**:
@@ -49,21 +49,21 @@ Or install it **manually**:
 1. Install the required dependencies
 
 ```bash
-pnpm add astro-i18n-routes
+pnpm add astro-i18n-route-gen
 ```
 
 ```bash
-npm install astro-i18n-routes
+npm install astro-i18n-route-gen
 ```
 
 ```bash
-yarn add astro-i18n-routes
+yarn add astro-i18n-rout-gen
 ```
 
 2. Add the integration to your astro config
 
 ```diff
-+import astroI18nRoutes from "astro-i18n-routes";
++import astroI18nRoutes from "astro-i18n-route-gen";
 
 export default defineConfig({
   integrations: [

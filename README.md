@@ -1,4 +1,4 @@
-# astro-i18n-routes
+# astro-i18n-route-gen
 
 An astro integration for cloning routes for astro i18n.
 

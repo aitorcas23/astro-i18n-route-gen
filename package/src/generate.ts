@@ -19,7 +19,7 @@ export function generate(options: GenerateOptions) {
 		options;
 	if (!routes) {
 		console.info(
-			"\x1b[34m[astro-i18n-routes]\x1b[0m No routes passed, route generation step will be ignored"
+			"\x1b[34m[astro-i18n-route-gen]\x1b[0m No routes passed, route generation step will be ignored"
 		);
 	}
 
@@ -86,7 +86,7 @@ function generateLevel(
 			}
 		} catch (error) {
 			console.warn(
-				"\x1b[34m[astro-i18n-routes]\x1b[0m \x1b[93m" + error + "\x1b[0m"
+				"\x1b[34m[astro-i18n-route-gen]\x1b[0m \x1b[93m" + error + "\x1b[0m"
 			);
 			continue;
 		}

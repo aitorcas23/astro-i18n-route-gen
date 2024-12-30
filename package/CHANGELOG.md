@@ -1,6 +1,6 @@
-# astro-i18n-routes
+# astro-i18n-route-gen
 
-## 0.2.0
+## 0.1.0
 
 ### Minor Changes
 

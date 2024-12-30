@@ -3,7 +3,7 @@ import { createResolver } from "astro-integration-kit";
 import { hmrIntegration } from "astro-integration-kit/dev";
 import { defineConfig } from "astro/config";
 
-const { default: astroi18nRoutes } = await import("astro-i18n-routes");
+const { default: astroi18nRoutes } = await import("astro-i18n-route-gen");
 
 // https://astro.build/config
 export default defineConfig({

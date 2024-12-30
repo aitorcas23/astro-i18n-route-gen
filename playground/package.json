@@ -14,7 +14,7 @@
 		"@astrojs/tailwind": "^5.1.4",
 		"astro": "^5.1.1",
 		"astro-integration-kit": "^0.18.0",
-		"astro-i18n-routes": "workspace:*",
+		"astro-i18n-route-gen": "workspace:*",
 		"tailwindcss": "^3.4.17"
 	},
 	"devDependencies": {
