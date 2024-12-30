@@ -13,10 +13,15 @@ This project takes care of creating those `/[locale]/` folders by duplicating th
 ## Usage
 
 The localized routes are automatically generated when executing an astro command like `astro dev` or `astro build`.
+To disable this set `enabled` to `false` in the integration settings.
+
 It is recommended to add the localized paths to the .gitignore file so you don't have unnecessary duplicated code on your repository.
 ```gitignore
 src/pages/es
 ```
+
+> [!NOTE]
+> If you want to manually edit localized pages then it is better to not use this integration.
 
 ### Prerequisites
 
@@ -70,9 +75,9 @@ export default defineConfig({
 ### Configuration
 
 The configuration contains this options, all of them being optional:
-- enabled: boolean. Determines if enable or disable route generation. Defaults to `true`.
-- pagesPath: string. The path to the astro pages. Defaults to `"./src/pages"`.
-- routes: object. The object which determines the file structure and the route translations.
+- **enabled**: boolean. Determines if enable or disable route generation. Defaults to `true`.
+- **pagesPath**: string. The path to the astro pages. Defaults to `"./src/pages"`.
+- **routes**: object. The object which determines the file structure and the route translations.
 This object follows this structure:
 ```
 {
@@ -123,6 +128,43 @@ The children has the contents of the folder inside repeating the same structure.
 If a file or folder is not included it will not be translated.
 This is useful in the case of the `404.astro` file.
 
+This lets us with this **example configuration**:
+
+```javascript
+export default defineConfig({
+    i18n: {
+        locales: ["es", "en"],
+        defaultLocale: "en",
+        routing: {
+            prefixDefaultLocale: false,
+        },
+    },
+    integrations: [
+        astroi18nRoutes({
+            enabled: true, // optional, default to true
+            pagesPath: "./src/pages", // optional, defaults to "./src/pages"
+            routes: {
+                "index.astro": {},
+                "about-us.astro": {
+                    es: "sobre-nosotros.astro",
+                },
+                news: {
+                    es: "noticias",
+                    children: {
+                        "news1.astro": {
+                            es: "noticia1.astro",
+                        },
+                        "news2.astro": {
+                            es: "noticia2.astro",
+                        },
+                    },
+                },
+            },
+        }),
+    ]
+})
+```
+
 ## Contributing
 
 This package is structured as a monorepo:
@@ -146,7 +188,7 @@ You can now edit files in `package`. Please note that making changes to those fi
 
 ## Licensing
 
-[MIT Licensed](https://github.com/TODO:/blob/main/LICENSE). Made with ❤️ by [aitorcas23](https://github.com/aitorcas23).
+[MIT Licensed](https://github.com/aitorcas23/astro-i18n-routes/blob/main/LICENSE). Made by [aitorcas23](https://github.com/aitorcas23).
 
 ## Acknowledgements
 

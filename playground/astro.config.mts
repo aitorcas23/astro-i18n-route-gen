@@ -22,8 +22,16 @@ export default defineConfig({
 				"about-us.astro": {
 					es: "sobre-nosotros.astro",
 				},
-				folder: {
-					es: "carpeta",
+				news: {
+					es: "noticias",
+					children: {
+						"news1.astro": {
+							es: "noticia1.astro",
+						},
+						"news2.astro": {
+							es: "noticia2.astro",
+						},
+					},
 				},
 			},
 		}),
