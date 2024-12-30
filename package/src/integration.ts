@@ -2,23 +2,6 @@ import { defineIntegration } from "astro-integration-kit";
 import { z } from "astro/zod";
 import { generate } from "./generate.ts";
 
-type Route = {
-	[key: string]: {
-		[locale: string]: string;
-	} & {
-		children?: Route | undefined;
-	};
-};
-
-const routesSchema: z.ZodType<Route> = z.record(
-	z.string(),
-	z.record(z.string()).and(
-		z.object({
-			children: z.lazy(() => routesSchema).optional(),
-		})
-	)
-);
-
 export const astroI18nRoutes = defineIntegration({
 	name: "astro-i18n-routes",
 	optionsSchema: z
