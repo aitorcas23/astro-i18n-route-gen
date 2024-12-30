@@ -2,7 +2,7 @@ import { defineIntegration } from "astro-integration-kit";
 import { z } from "astro/zod";
 import { generate } from "./generate.ts";
 
-export const astroI18nRoutes = defineIntegration({
+export const astroI18nRouteGen = defineIntegration({
 	name: "astro-i18n-route-gen",
 	optionsSchema: z
 		.object({

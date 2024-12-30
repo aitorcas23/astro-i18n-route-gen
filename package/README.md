@@ -1,6 +1,7 @@
 # `Astro i18n Route Gen`
 
-This is an [Astro integration](https://docs.astro.build/en/guides/integrations-guide/) that clones the pages routes for internationalization.
+This is an [Astro integration](https://docs.astro.build/en/guides/integrations-guide/) that automatically generates localized pages routes for astro i18n.
+
 Astro 4 supports i18n routes.
 For that, in the [documentation](https://docs.astro.build/en/guides/internationalization/#create-localized-folders) it's mentioned that you need to create individual `/[locale]/` folders in your pages.
 In big projects, maintaining multiple duplicated pages can be tedious.
@@ -15,7 +16,7 @@ This project takes care of creating those `/[locale]/` folders by duplicating th
 The localized routes are automatically generated when executing an astro command like `astro dev` or `astro build`.
 To disable this set `enabled` to `false` in the integration settings.
 
-It is recommended to add the localized paths to the .gitignore file so you don't have unnecessary duplicated code on your repository.
+It is recommended to add the localized paths to the **.gitignore** file so you don't have unnecessary duplicated code on your repository.
 ```gitignore
 src/pages/es
 ```
@@ -67,11 +68,11 @@ yarn add astro-i18n-rout-gen
 2. Add the integration to your astro config
 
 ```diff
-+import astroI18nRoutes from "astro-i18n-route-gen";
++import astroI18nRouteGen from "astro-i18n-route-gen";
 
 export default defineConfig({
   integrations: [
-+    astroI18nRoutes(),
++    astroI18nRouteGen(),
   ],
 });
 ```
