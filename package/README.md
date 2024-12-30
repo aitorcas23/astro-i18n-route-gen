@@ -7,7 +7,7 @@ In big projects, maintaining multiple duplicated pages can be tedious.
 This project takes care of creating those `/[locale]/` folders by duplicating the pages routes for each existing locale.
 
 > [!IMPORTANT]
-> This integration does not manage translations, only clones the pages routes.
+> This integration does not manage content translations, only clones the pages routes.
 > Use packages like [paraglide](https://inlang.com/m/iljlwzfs/paraglide-astro-i18n) for managing translations.
 
 ## Usage
@@ -25,7 +25,7 @@ src/pages/es
 
 ### Prerequisites
 
-Astro version 4.0.0 or higher is required, the version where i18n routing was introduced.
+This integration should work with Astro 4.0.0, but version 5.0.0 or higher is recommended.
 It is also required to configure the i18n settings in the astro configuration file.
 
 ### Installation
@@ -82,17 +82,17 @@ This object follows this structure:
 ```
 {
     "file-name": {
-        "[locale]": "translation" // optional
+        "[locale]": "translation" // optional | for each locale in the project
     },
     "folder-name": {
-        "[locale]": "translation", // optional
-        children: { // optional
+        "[locale]": "translation", // optional | for each locale in the project
+        children: { // optional | only if directory
             "file-name": {
-                "[locale]": "translation" // optional
+                "[locale]": "translation" // optional | for each locale in the project
             },
             "folder-name": {
-                "[locale]": "translation", // optional
-                children: {
+                "[locale]": "translation", // optional | for each locale in the project
+                children: { // optional | only if directory
                     ...
                 }
             }
@@ -102,14 +102,14 @@ This object follows this structure:
 ```
 
 For example:
-```
+```javascript
 {
     "index.astro": {},
     "about-us.astro": {
         es: "sobre-nosotros.astro"
     },
     "news": {
-        es: noticias,
+        es: "noticias",
         children: {
             "news1.astro": {
                 es: "noticia1.astro"
@@ -122,10 +122,12 @@ For example:
 }
 ```
 The object start with the file and folder names.
-This then have inside an optional children key, in the case of a folder, and an optional key for each locale with the translated name.
+This objects have an optional key for each locale in the project besides the default locale.
+If a locale is not included the existing file name will be used for the localized file name.
+In the case of a folder, there is an optional `children` key.
 The children has the contents of the folder inside repeating the same structure.
 
-If a file or folder is not included it will not be translated.
+If a file or folder is not included in the routes it will not be localized.
 This is useful in the case of the `404.astro` file.
 
 This lets us with this **example configuration**:

@@ -9,6 +9,11 @@ interface GenerateOptions {
 	routes: { [key: string]: any };
 }
 
+/**
+ * Generate the localized routes based on the integration config from `astro.config.mjs` or `mts`
+ *
+ * @param {GenerateOptions} options - Options to pass to the `generate` function.
+ */
 export function generate(options: GenerateOptions) {
 	const { locales, defaultLocale, pagesPath, routes, prefixDefaultLocale } =
 		options;
@@ -30,12 +35,24 @@ export function generate(options: GenerateOptions) {
 	}
 }
 
+/**
+ * Generate a route level, meaning the contents of a directory.
+ * The first iteration is executed in the root directory.
+ * This levels are generated recursively.
+ *
+ * @param {string} locale - Locale of this iteration, for example `"es"`.
+ * @param {string} defaultLocalePrefix - The default locale of the Astro project.
+ * @param {string} pagesPath - The path to the pages directory of your Astro project.
+ * @param {string} basePath - The previous generated path. For example, if generating `"/news/news1.astro"`, `basePath` will be `"/news"`.
+ * @param {string} localizedBasePath - The previous generated localized path. For example, if generating `"/news/news1.astro"`, `localizedBasePath` will be `"/noticias"`.
+ * @param {{[key:string]: any}} routes - The route tree to be generated.
+ */
 function generateLevel(
 	locale: string,
 	defaultLocalePrefix: string,
 	pagesPath: string,
 	basePath: string,
-	translatedBasePath: string,
+	localizedBasePath: string,
 	routes: { [key: string]: any }
 ) {
 	for (const key in routes) {
@@ -51,10 +68,10 @@ function generateLevel(
 			if (fsEntity.isFile()) {
 				fs.copyFileSync(
 					path.join(pagesPath, defaultLocalePrefix, basePath, key),
-					path.join(pagesPath, locale, translatedBasePath, name)
+					path.join(pagesPath, locale, localizedBasePath, name)
 				);
 			} else if (fsEntity.isDirectory()) {
-				fs.mkdirSync(path.join(pagesPath, locale, translatedBasePath, name));
+				fs.mkdirSync(path.join(pagesPath, locale, localizedBasePath, name));
 			}
 
 			if (value.children) {
@@ -63,7 +80,7 @@ function generateLevel(
 					defaultLocalePrefix,
 					pagesPath,
 					path.join(basePath, key),
-					path.join(translatedBasePath, name),
+					path.join(localizedBasePath, name),
 					value.children
 				);
 			}
